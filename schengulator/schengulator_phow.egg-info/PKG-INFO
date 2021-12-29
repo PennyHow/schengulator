@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: schengulator-phow
+Version: 0.0.1
+Summary: A tool to calculate how many days an individual has been in Schengen countries out of a specified 180-day period
+Home-page: https://github.com/PennyHow/schengulator
+Author: Penelope How
+Author-email: pennyruthhow@gmail.com
+License: UNKNOWN
+Project-URL: Documentation, https://readthedocs.io/schengulator
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Schengulator
+Schengulator is a tool to calculate how many days an individual has been in Schengen countries out of a specified 180-day period.
+
+The Schengulator determines the number of days spent and remaining based on the 90/180 Schengen Visa Rule:
+    
+"The 180-day period keeps rolling. Therefore, anytime you wish to enter the Schengen, you just have to count backwards the last 180 days, and see if you have been present in the Schengen for more than 90 days throughout that period"
+
+This tool was inspired by these related python repositories:
+- [schengen](https://github.com/weddige/schengen)
+- [schengencalc](https://github.com/nuno-filipe/schengencalc)
+
+
