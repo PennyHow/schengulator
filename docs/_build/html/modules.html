@@ -1,0 +1,353 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Modules &#8212; schengulator 0.0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/nature.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Acknowledgements" href="acknowledgements.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="acknowledgements.html" title="Acknowledgements"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">schengulator 0.0.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Modules</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="module-schengulator">
+<span id="modules"></span><h1>Modules<a class="headerlink" href="#module-schengulator" title="Permalink to this headline">¶</a></h1>
+<p>Schengulator is a tool to calculate how many days an individual has been in
+Schengen countries out of a specified 180-day period. The Schengulator
+determines the number of days spent and remaining based on the 90/180 Schengen
+Visa Rule:</p>
+<p>“The 180-day period keeps rolling. Therefore, anytime you wish to enter the
+Schengen, you just have to count backwards the last 180 days, and see if you
+have been present in the Schengen for more than 90 days throughout that period”</p>
+<p>This tool was inspired by these related python repositories:
+- schengen: <a class="reference external" href="https://github.com/weddige/schengen">https://github.com/weddige/schengen</a>
+- schengencalc: <a class="reference external" href="https://github.com/nuno-filipe/schengencalc">https://github.com/nuno-filipe/schengencalc</a></p>
+<p>&#64;author: Penelope How</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="schengulator.SchengenStay">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">schengulator.</span></span><span class="sig-name descname"><span class="pre">SchengenStay</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">datetime.date(2021,</span> <span class="pre">12,</span> <span class="pre">29)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">180</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#schengulator.SchengenStay" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Holds all attributes associated with a stay or collection of stays
+within the Schengen zone (or outside of home country)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>date1</strong> (<em>datetime.date</em>) – End date</p></li>
+<li><p><strong>date0</strong> (<em>datetime.date</em>) – Start date</p></li>
+<li><p><strong>window</strong> (<em>int</em>) – Window of evaluation to check stays in Schengen area or stays outside of
+home country (default=180 days)</p></li>
+<li><p><strong>stays</strong> (<em>list</em>) – List of Stay objects, representing stays within the Schengen zone (or
+outside of home country)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="schengulator.SchengenStay.addStay">
+<span class="sig-name descname"><span class="pre">addStay</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#schengulator.SchengenStay.addStay" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add stay (as Stay object)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>start</strong> (<em>str</em>) – Start date of stay</p></li>
+<li><p><strong>End</strong> (<em>str</em>) – End date of stay</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="schengulator.SchengenStay.checkDays">
+<span class="sig-name descname"><span class="pre">checkDays</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">days</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">90</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#schengulator.SchengenStay.checkDays" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if number of days in Schengen period is less than 90 days
+within the given 180 day period, based on inputted stays</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>days</strong> (<em>int</em><em>, </em><em>optional</em>) – Maximum number of days in Schengen area or out of home country</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Flag denoting if the number of days in below (True) or above (False)
+90 days</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="schengulator.SchengenStay.getDays">
+<span class="sig-name descname"><span class="pre">getDays</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#schengulator.SchengenStay.getDays" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get number of days in Schengen area  (or out of home country)
+within the given 180 day period, based on inputted stays</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>days_out</strong> – Number of days in Schengen area</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="schengulator.SchengenStay.getStartDate">
+<span class="sig-name descname"><span class="pre">getStartDate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#schengulator.SchengenStay.getStartDate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get start of 180 day period, which is calculated from the inputted
+date to initialise the SchengenStay object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Start date of 180 day period</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>datetime.date</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="schengulator.Stay">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">schengulator.</span></span><span class="sig-name descname"><span class="pre">Stay</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#schengulator.Stay" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Holds all attributes atributed to a stay in a country, or a trip away
+from the home country</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>start</strong> (<em>datetime.date</em>) – Start date of stay</p></li>
+<li><p><strong>end</strong> (<em>datetime.date</em>) – End date of stay</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="schengulator.Stay.checkStay">
+<span class="sig-name descname"><span class="pre">checkStay</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#schengulator.Stay.checkStay" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if any date of stay is within a given date range</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>d1</strong> (<em>datetime.date</em>) – Start date</p></li>
+<li><p><strong>d2</strong> (<em>datetime.date</em>) – End date</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>flag</strong> – Flag denoting if stay is within (True) or outside (False) of given
+date range</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="schengulator.Stay.countStay">
+<span class="sig-name descname"><span class="pre">countStay</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#schengulator.Stay.countStay" title="Permalink to this definition">¶</a></dt>
+<dd><p>Count number of days of stay within a given date range</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>d1</strong> (<em>datetime.date</em>) – Start date</p></li>
+<li><p><strong>d2</strong> (<em>datetime.date</em>) – End date</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>count</strong> – Number of days of stay that are within given date range</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="schengulator.Stay.getDates">
+<span class="sig-name descname"><span class="pre">getDates</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#schengulator.Stay.getDates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all dates within start and end date of stay</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>List of all dates within date range</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="schengulator.Stay.getDelta">
+<span class="sig-name descname"><span class="pre">getDelta</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#schengulator.Stay.getDelta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get time delta between start and end date of stay</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Time delta of date range</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>datetime.delta</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="schengulator.checkDaysLeft">
+<span class="sig-prename descclassname"><span class="pre">schengulator.</span></span><span class="sig-name descname"><span class="pre">checkDaysLeft</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stays</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">datetime.date(2021,</span> <span class="pre">12,</span> <span class="pre">29)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_days</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">90</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">180</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#schengulator.checkDaysLeft" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check the number of days left to visit Schengen area (or stay out of
+home country). Two answers are given - a theoretical leave date and an
+actual leave date. The theoretical leave date is the remaining number of
+days that you can stay in the Schengen area, assuming that the 180-day
+window remains static (i.e. evaluated from the same dates). The actual
+leave date is the remaining number of days that you can stay in the
+Schengen area, assuming that the 180-day window is dynamic and moves with
+the final day of the last recorded stay (i.e. as if your final trip keeps
+extending day-to-day as you continue to stay in a Schengen country)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>stays</strong> (<em>list</em>) – List of all past stays e.g. [[start1, end1], [start2, end2]]</p></li>
+<li><p><strong>d</strong> (<em>str/datetime.date</em>) – Date to evaluate from. Today’s date is used if this is not specified
+(default=datetime.date.today())</p></li>
+<li><p><strong>max_days</strong> (<em>int</em>) – Maximum number of days that can be spent in Schengen area, or out of
+home country (default=90)</p></li>
+<li><p><strong>window</strong> (<em>int</em>) – Window of evaluation (default=180)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="schengulator.checkStay">
+<span class="sig-prename descclassname"><span class="pre">schengulator.</span></span><span class="sig-name descname"><span class="pre">checkStay</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">staydate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stays</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">180</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#schengulator.checkStay" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check proposed stay is inkeeping with Schengen 90-day rule and past
+stays in Schengen countries (or out of home country)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>staydate</strong> (<em>list</em>) – List containing start and end date of proposed stay</p></li>
+<li><p><strong>stays</strong> (<em>list</em>) – List of all past stays i.e. [[start1, end1], [start2, end2]]</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="schengulator.getDate">
+<span class="sig-prename descclassname"><span class="pre">schengulator.</span></span><span class="sig-name descname"><span class="pre">getDate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#schengulator.getDate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Export date as datetime.date, or check if date passed is datetime.date</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>d</strong> (<em>str/datetime.date</em>) – Date</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Datetime date</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>datetime.date</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="schengulator.staysFromCSV">
+<span class="sig-prename descclassname"><span class="pre">schengulator.</span></span><span class="sig-name descname"><span class="pre">staysFromCSV</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">csv_file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#schengulator.staysFromCSV" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read past stays from CSV</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>csv_file</strong> (<em>str</em>) – File path to CSV file containing past stays</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>stays</strong> – List of date strings of start and end of all stays i.e. [[start1, end1],
+[start2, end2]]</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="acknowledgements.html"
+                        title="previous chapter">Acknowledgements</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/modules.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="acknowledgements.html" title="Acknowledgements"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">schengulator 0.0.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Modules</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Penelope How.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.2.0.
+    </div>
+  </body>
+</html>

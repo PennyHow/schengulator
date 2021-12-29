@@ -95,5 +95,5 @@ checkDaysLeft(csv_trips, d=new_trip[1])
 
 ## Acknowledgements
 This tool was inspired by these related python repositories:
-- [schengen](https://github.com/weddige/schengen)
-- [schengencalc](https://github.com/nuno-filipe/schengencalc)
++ [schengen](https://github.com/weddige/schengen)
++ [schengencalc](https://github.com/nuno-filipe/schengencalc)
