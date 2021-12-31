@@ -17,8 +17,8 @@ Check that the package works by opening a python console and importing it.
 There are a number of examples in the scripts provided in the `examples <https://github.com/PennyHow/schengulator/tree/main/examples>`_ directory of the `schengulator Github repository <https://github.com/PennyHow/schengulator>`_ to test the installation and see how it works. 
 
 .. code-block:: python
-   from schengulator import SchengenStay, checkStay, /
-      checkDaysLeft, staysFromCSV
+   from schengulator.schengulator import SchengenStay, / 
+      checkStay, checkDaysLeft, staysFromCSV
 
    # Example 1. Check Schengen stays from specific date 
    # using SchengenStay obj

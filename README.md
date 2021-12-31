@@ -37,8 +37,8 @@ import schengulator
 There are a number of examples in the scripts provided in the [examples](https://github.com/PennyHow/schengulator/tree/main/examples) directory of the [schengulator Github repository](https://github.com/PennyHow/schengulator) to test the installation and see how it works. 
 
 ```python
-from schengulator import SchengenStay, checkStay, /
-     checkDaysLeft, staysFromCSV
+from schengulator.schengulator import SchengenStay, /
+     checkStay, checkDaysLeft, staysFromCSV
 
 # Example 1. Check Schengen stays from specific date 
 # using SchengenStay obj
