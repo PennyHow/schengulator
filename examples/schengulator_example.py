@@ -14,7 +14,7 @@ This tool was inspired by these related python repositories:
 
 @author: Penelope How
 """
-from schengulator import SchengenStay, checkStay, checkDaysLeft, staysFromCSV
+from schengulator.schengulator import SchengenStay, checkStay, / checkDaysLeft, staysFromCSV
 
 # Example 1. Check Schengen stays from specific date using SchengenStay obj
 #Initialise Schengen evaluation from 01/05/2022
