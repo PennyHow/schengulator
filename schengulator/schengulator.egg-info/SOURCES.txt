@@ -1,8 +1,0 @@
-LICENSE
-README.md
-pyproject.toml
-setup.cfg
-schengulator/schengulator.egg-info/PKG-INFO
-schengulator/schengulator.egg-info/SOURCES.txt
-schengulator/schengulator.egg-info/dependency_links.txt
-schengulator/schengulator.egg-info/top_level.txt

@@ -42,19 +42,11 @@
   <section id="module-schengulator">
 <span id="modules"></span><h1>Modules<a class="headerlink" href="#module-schengulator" title="Permalink to this headline">¶</a></h1>
 <p>Schengulator is a tool to calculate how many days an individual has been in
-Schengen countries out of a specified 180-day period. The Schengulator
-determines the number of days spent and remaining based on the 90/180 Schengen
-Visa Rule:</p>
-<p>“The 180-day period keeps rolling. Therefore, anytime you wish to enter the
-Schengen, you just have to count backwards the last 180 days, and see if you
-have been present in the Schengen for more than 90 days throughout that period”</p>
-<p>This tool was inspired by these related python repositories:
-- schengen: <a class="reference external" href="https://github.com/weddige/schengen">https://github.com/weddige/schengen</a>
-- schengencalc: <a class="reference external" href="https://github.com/nuno-filipe/schengencalc">https://github.com/nuno-filipe/schengencalc</a></p>
+Schengen countries out of a specified 180-day period.</p>
 <p>&#64;author: Penelope How</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="schengulator.SchengenStay">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">schengulator.</span></span><span class="sig-name descname"><span class="pre">SchengenStay</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">datetime.date(2021,</span> <span class="pre">12,</span> <span class="pre">29)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">180</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#schengulator.SchengenStay" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">schengulator.</span></span><span class="sig-name descname"><span class="pre">SchengenStay</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">datetime.date(2021,</span> <span class="pre">12,</span> <span class="pre">31)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">180</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#schengulator.SchengenStay" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Holds all attributes associated with a stay or collection of stays
 within the Schengen zone (or outside of home country)</p>
@@ -222,7 +214,7 @@ date range</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="schengulator.checkDaysLeft">
-<span class="sig-prename descclassname"><span class="pre">schengulator.</span></span><span class="sig-name descname"><span class="pre">checkDaysLeft</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stays</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">datetime.date(2021,</span> <span class="pre">12,</span> <span class="pre">29)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_days</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">90</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">180</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#schengulator.checkDaysLeft" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">schengulator.</span></span><span class="sig-name descname"><span class="pre">checkDaysLeft</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stays</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">datetime.date(2021,</span> <span class="pre">12,</span> <span class="pre">31)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_days</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">90</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">180</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#schengulator.checkDaysLeft" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check the number of days left to visit Schengen area (or stay out of
 home country). Two answers are given - a theoretical leave date and an
 actual leave date. The theoretical leave date is the remaining number of
