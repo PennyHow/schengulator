@@ -1,11 +1,14 @@
 # Schengulator
+
+[![Documentation Status](https://readthedocs.org/projects/schengulator/badge/?version=latest)](https://schengulator.readthedocs.io/en/latest/?badge=latest) [![PyPI version](https://badge.fury.io/py/schengulator.svg)](https://badge.fury.io/py/schengulator)
+
 Schengulator is a tool to calculate how many days an individual has been in Schengen countries out of a specified 180-day period.
 
 ## The Schengen Visa Rule
 
 The schengulator determines the number of days spent and remaining based on the 90/180-day Schengen Visa Rule, where an individual can stay in Schengen countries for 90 days out of an 180 day time period. The 180-day window is defined as:
     
-*"The 180-day period keeps rolling. Therefore, anytime you wish to enter the Schengen, you just have to count backwards the last 180 days, and see if you have been present in the Schengen for more than 90 days throughout that period"* (as stated [here](https://www.schengenvisainfo.com/visa-calculator)
+*"The 180-day period keeps rolling. Therefore, anytime you wish to enter the Schengen, you just have to count backwards the last 180 days, and see if you have been present in the Schengen for more than 90 days throughout that period"* (as stated [here](https://www.schengenvisainfo.com/visa-calculator))
 
 Therefore, schengulator calculates the days spent in the Schengen area based on the 180 days prior to a user-defined date.
 
