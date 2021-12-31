@@ -14,7 +14,9 @@
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Acknowledgements" href="acknowledgements.html" />
+    <link rel="prev" title="The Schengen Visa Rule" href="rules.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -22,6 +24,15 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="acknowledgements.html" title="Acknowledgements"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="rules.html" title="The Schengen Visa Rule"
+             accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">schengulator 0.0.1 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Quickstart</a></li> 
       </ul>
@@ -35,9 +46,72 @@
   <section id="quickstart">
 <h1>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this headline">¶</a></h1>
 <p>To get started, install schengulator using pip.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">schengulator</span>
+</pre></div>
+</div>
 <p>Schengulator’s only dependencies are <strong>datetime</strong> and <strong>csv</strong> for handling date objects and loading from csv files, respectively. These are usually in-built packages to Python distributions, and therefore there should not be any compatibility issues.</p>
 <p>Check that the package works by opening a python console and importing it.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span>
+<span class="kn">import</span> <span class="nn">schengulator</span>
+</pre></div>
+</div>
 <p>There are a number of examples in the scripts provided in the <a class="reference external" href="https://github.com/PennyHow/schengulator/tree/main/examples">examples</a> directory of the <a class="reference external" href="https://github.com/PennyHow/schengulator">schengulator Github repository</a> to test the installation and see how it works.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">schengulator.schengulator</span> <span class="kn">import</span> <span class="n">SchengenStay</span><span class="p">,</span> <span class="o">/</span>
+   <span class="n">checkStay</span><span class="p">,</span> <span class="n">checkDaysLeft</span><span class="p">,</span> <span class="n">staysFromCSV</span>
+
+<span class="c1"># Example 1. Check Schengen stays from specific date</span>
+<span class="c1"># using SchengenStay obj</span>
+
+<span class="c1"># Initialise Schengen evaluation from 01/05/2022</span>
+<span class="n">ss</span> <span class="o">=</span> <span class="n">SchengenStay</span><span class="p">(</span><span class="s1">&#39;2022-05-01&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add all stays</span>
+<span class="n">ss</span><span class="o">.</span><span class="n">addStay</span><span class="p">(</span><span class="s1">&#39;2021-07-01&#39;</span><span class="p">,</span> <span class="s1">&#39;2021-07-15&#39;</span><span class="p">)</span>      <span class="c1"># Greece</span>
+<span class="n">ss</span><span class="o">.</span><span class="n">addStay</span><span class="p">(</span><span class="s1">&#39;2021-09-03&#39;</span><span class="p">,</span> <span class="s1">&#39;2021-09-08&#39;</span><span class="p">)</span>      <span class="c1"># Netherlands</span>
+<span class="n">ss</span><span class="o">.</span><span class="n">addStay</span><span class="p">(</span><span class="s1">&#39;2021-09-20&#39;</span><span class="p">,</span> <span class="s1">&#39;2021-09-25&#39;</span><span class="p">)</span>      <span class="c1"># Belgium</span>
+<span class="n">ss</span><span class="o">.</span><span class="n">addStay</span><span class="p">(</span><span class="s1">&#39;2021-12-20&#39;</span><span class="p">,</span> <span class="s1">&#39;2022-01-03&#39;</span><span class="p">)</span>      <span class="c1"># Belgium</span>
+<span class="n">ss</span><span class="o">.</span><span class="n">addStay</span><span class="p">(</span><span class="s1">&#39;2022-04-18&#39;</span><span class="p">,</span> <span class="s1">&#39;2022-05-01&#39;</span><span class="p">)</span>      <span class="c1"># Italy</span>
+
+<span class="c1"># Check number of days spent in Schengen on 01/05/2022</span>
+<span class="n">flag</span> <span class="o">=</span> <span class="n">ss</span><span class="o">.</span><span class="n">checkDays</span><span class="p">()</span>
+<span class="k">if</span> <span class="n">flag</span><span class="o">==</span><span class="kc">True</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;All okay!&#39;</span><span class="p">)</span>
+
+
+
+<span class="c1"># Example 2. Check Schengen stays for all dates in</span>
+<span class="c1"># proposed future stay</span>
+
+<span class="c1"># Create list of all stays</span>
+<span class="n">trips</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;2021-07-01&#39;</span><span class="p">,</span><span class="s1">&#39;2021-07-15&#39;</span><span class="p">],</span>     <span class="c1"># Greece</span>
+        <span class="p">[</span><span class="s1">&#39;2021-09-03&#39;</span><span class="p">,</span> <span class="s1">&#39;2021-09-08&#39;</span><span class="p">],</span>     <span class="c1"># Netherlands</span>
+        <span class="p">[</span><span class="s1">&#39;2021-09-20&#39;</span><span class="p">,</span> <span class="s1">&#39;2021-09-25&#39;</span><span class="p">],</span>     <span class="c1"># Belgium</span>
+        <span class="p">[</span><span class="s1">&#39;2021-12-20&#39;</span><span class="p">,</span> <span class="s1">&#39;2022-01-03&#39;</span><span class="p">],</span>     <span class="c1"># Belgium</span>
+        <span class="p">[</span><span class="s1">&#39;2022-04-18&#39;</span><span class="p">,</span> <span class="s1">&#39;2022-05-01&#39;</span><span class="p">]]</span>     <span class="c1"># Italy</span>
+
+<span class="c1"># Check if new stay is within Schengen 90-day limits</span>
+<span class="n">checkStay</span><span class="p">([</span><span class="s1">&#39;2022-04-18&#39;</span><span class="p">,</span> <span class="s1">&#39;2022-05-01&#39;</span><span class="p">],</span> <span class="n">trips</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="c1"># See how many days left in Schengen after proposed trip</span>
+<span class="n">checkDaysLeft</span><span class="p">(</span><span class="n">trips</span><span class="p">)</span>
+
+
+
+<span class="c1"># Example 3. Check Schengen stays from CSV file</span>
+
+<span class="c1"># Import stays from csv file</span>
+<span class="n">infile</span> <span class="o">=</span> <span class="s1">&#39;examples/example_stays.csv&#39;</span>
+<span class="n">csv_trips</span> <span class="o">=</span> <span class="n">staysFromCSV</span><span class="p">(</span><span class="n">infile</span><span class="p">)</span>
+
+<span class="c1"># Check if new trip is within Schengen 90-day limits</span>
+<span class="n">new_trip</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;2022-01-05&#39;</span><span class="p">,</span> <span class="s1">&#39;2022-01-20&#39;</span><span class="p">]</span>
+<span class="n">checkStay</span><span class="p">(</span><span class="n">new_trip</span><span class="p">,</span> <span class="n">csv_trips</span><span class="p">)</span>
+
+<span class="c1"># Check how many days left in Schengen after new trip</span>
+<span class="n">csv_trips</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_trip</span><span class="p">)</span>
+<span class="n">checkDaysLeft</span><span class="p">(</span><span class="n">csv_trips</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="n">new_trip</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
 </section>
 
 
@@ -47,6 +121,12 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="rules.html"
+                        title="previous chapter">The Schengen Visa Rule</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="acknowledgements.html"
+                        title="next chapter">Acknowledgements</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -74,6 +154,15 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="acknowledgements.html" title="Acknowledgements"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="rules.html" title="The Schengen Visa Rule"
+             >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">schengulator 0.0.1 documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Quickstart</a></li> 
       </ul>

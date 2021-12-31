@@ -6,6 +6,7 @@ The schengulator determines the number of days spent and remaining based on the 
 *"The 180-day period keeps rolling. Therefore, anytime you wish to enter the Schengen, you just have to count backwards the last 180 days, and see if you have been present in the Schengen for more than 90 days throughout that period"* (as stated `here <https://www.schengenvisainfo.com/visa-calculator>`_). Therefore, schengulator calculates the days spent in the Schengen area based on the 180 days prior to a user-defined date.
 
 For more on the Schengen Visa Rule, see these links:
+
 * `Schengen visa info <https://www.schengenvisainfo.com>`_
 * `The 90/180-day rule made easy <https://newlandchase.com/the-schengen-areas-90-180-day-rule-made-easy/>`_
 * `UK Government on visa permits in Europe <https://www.gov.uk/guidance/check-if-you-need-a-visa-or-permit-for-europe>`_

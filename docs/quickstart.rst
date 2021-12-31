@@ -4,19 +4,22 @@ Quickstart
 To get started, install schengulator using pip.
 
 .. code-block:: python
+   
    pip install schengulator
 
 Schengulator's only dependencies are **datetime** and **csv** for handling date objects and loading from csv files, respectively. These are usually in-built packages to Python distributions, and therefore there should not be any compatibility issues.
 
 Check that the package works by opening a python console and importing it.
-
+   
 .. code-block:: python
+   
    python3
    import schengulator
 
 There are a number of examples in the scripts provided in the `examples <https://github.com/PennyHow/schengulator/tree/main/examples>`_ directory of the `schengulator Github repository <https://github.com/PennyHow/schengulator>`_ to test the installation and see how it works. 
 
 .. code-block:: python
+   
    from schengulator.schengulator import SchengenStay, / 
       checkStay, checkDaysLeft, staysFromCSV
 
