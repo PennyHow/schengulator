@@ -21,7 +21,6 @@ setuptools.setup(
         "Natural Language :: English",
         "Operating System :: OS Independent",
     ],
-    install_requires=['datetime', 'csv'],
     python_requires='>=3',
 )
 

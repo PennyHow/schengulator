@@ -47,8 +47,6 @@ To get started, install schengulator using pip.
 pip install schengulator
 ```
 
-Schengulator's only dependencies are **datetime** and **csv** for handling date objects and loading from csv files, respectively. These are usually in-built packages to Python distributions, and therefore there should not be any compatibility issues.
-
 Check that the package works by opening a python console and importing it.
 
 ```python
