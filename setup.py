@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="schengulator", 
-    version="0.0.4",
+    version="0.0.5",
     author="Penelope How",
     author_email="pennyruthhow@gmail.com",
     description="A tool to calculate how many days an individual has been in Schengen countries out of a specified 180-day period",
