@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "schengulator"
+version = "1.0.0"
+description ="A tool to calculate how many days an individual has been in Schengen countries out of a specified 180-day period"
+readme = "README.md"
+authors = [{name = "Penelope How", email = "pennyruthhow@gmail.com"}]
+maintainers = [{name = "Penelope How", email = "pennyruthhow@gmail.com"}]
+license = {text = "MIT"}
+keywords = ["schengen", "travel", "movement", "europe"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Development Status :: 5 - Production/Stable",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+]
+requires-python = ">=3.8"
+
+[project.urls]
+"Homepage" = "https://github.com/PennyHow/schengulator"
+"Bug Tracker" = "https://github.com/PennyHow/schengulator/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+schengulator = ["*.csv"]

@@ -12,17 +12,17 @@
 #
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../schengulator'))
+sys.path.insert(0, os.path.abspath('../src'))
 
 
 # -- Project information -----------------------------------------------------
 
 project = 'schengulator'
-copyright = '2021, Penelope How'
+copyright = '2025, Penelope How'
 author = 'Penelope How'
 
 # The full version, including alpha/beta/rc tags
-release = '0.0.1'
+release = '1.0.0'
 
 
 # -- General configuration ---------------------------------------------------
@@ -39,6 +39,8 @@ extensions = [
 napoleon_google_docstring = False
 napoleon_numpy_docstring = True
 napoleon_use_ivar = True
+
+autodoc_mock_imports = ['schengulator']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']

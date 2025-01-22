@@ -1,0 +1,4 @@
+datetime
+myst-parser
+renku-sphinx-theme
+sphinx_design
