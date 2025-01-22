@@ -1,3 +1,4 @@
+csv
 datetime
 myst-parser
 renku-sphinx-theme
