@@ -38,60 +38,55 @@ import schengulator
 There are a number of examples in the scripts provided in the [examples](https://github.com/PennyHow/schengulator/tree/main/examples) directory of the [schengulator Github repository](https://github.com/PennyHow/schengulator) to test the installation and see how it works. 
 
 ```python
-from schengulator.schengulator import SchengenStay, /
-     checkStay, checkDaysLeft, staysFromCSV
+from schengulator.schengenstay import SchengenStay
+from schengulator.check_stay import check_stay
+from schengulator.check_days_left import check_days_left
+from schengulator.stays_from_csv import stays_from_csv
 
-# Example 1. Check Schengen stays from specific date 
-# using SchengenStay obj
-
-# Initialise Schengen evaluation from 01/05/2022
+# Example 1. Check Schengen stays from specific date using SchengenStay obj
+#Initialise Schengen evaluation from 01/05/2022
 ss = SchengenStay('2022-05-01')
 
-# Add all stays
-ss.addStay('2021-07-01', '2021-07-15')      # Greece
-ss.addStay('2021-09-03', '2021-09-08')      # Netherlands
-ss.addStay('2021-09-20', '2021-09-25')      # Belgium
-ss.addStay('2021-12-20', '2022-01-03')      # Belgium
-ss.addStay('2022-04-18', '2022-05-01')      # Italy
+#Add all stays
+ss.add_stay('2021-07-01', '2021-07-15')         # Holiday in Greece
+ss.add_stay('2021-09-03', '2021-09-08')         # Business trip in The Netherlands
+ss.add_stay('2021-09-20', '2021-09-25')         # Visiting family in Belgium
+ss.add_stay('2021-12-20', '2022-01-03')         # Family Christmas in Belgium
+ss.add_stay('2022-04-18', '2022-05-01')         # Proposed holiday to Italy
 
-# Check number of days spent in Schengen on 01/05/2022
-flag = ss.checkDays()
+#Check number of days spent in Schengen on 01/05/2022
+flag = ss.check_days()
 if flag==True:
     print('All okay!')
     
- 
-    
-# Example 2. Check Schengen stays for all dates in 
-# proposed future stay
+   
+# Example 2. Check Schengen stays for all dates in proposed future stay
+#Create list of all stays
+trips = [['2021-07-01','2021-07-15'],         # Holiday in Greece
+        ['2021-09-03', '2021-09-08'],         # Business trip in The Netherlands
+        ['2021-09-20', '2021-09-25'],         # Visiting family in Belgium
+        ['2021-12-20', '2022-01-03'],         # Family Christmas in Belgium
+        ['2022-04-18', '2022-05-01']]         # Proposed holiday to Italy
 
-# Create list of all stays
-trips = [['2021-07-01','2021-07-15'],     # Greece
-        ['2021-09-03', '2021-09-08'],     # Netherlands
-        ['2021-09-20', '2021-09-25'],     # Belgium
-        ['2021-12-20', '2022-01-03'],     # Belgium
-        ['2022-04-18', '2022-05-01']]     # Italy
+#Check if new stay is within Schengen 90-day limits
+check_stay(['2022-04-18', '2022-05-01'], trips[:-1])
 
-# Check if new stay is within Schengen 90-day limits
-checkStay(['2022-04-18', '2022-05-01'], trips[:-1])
-
-# See how many days left in Schengen after proposed trip
-checkDaysLeft(trips)
-
+#See how many days left in Schengen after proposed trip
+check_days_left(trips)
 
 
 # Example 3. Check Schengen stays from CSV file
+#Import stays from csv file
+infile = 'example_stays.csv'
+csv_trips = stays_from_csv(infile)
 
-# Import stays from csv file
-infile = 'examples/example_stays.csv'
-csv_trips = staysFromCSV(infile)
-
-# Check if new trip is within Schengen 90-day limits
+#Check if new trip is within Schengen 90-day limits
 new_trip = ['2022-01-05', '2022-01-20']
-checkStay(new_trip, csv_trips)
+check_stay(new_trip, csv_trips)
 
-# Check how many days left in Schengen after new trip
+#Check how many days left in Schengen after new trip
 csv_trips.append(new_trip)
-checkDaysLeft(csv_trips, d=new_trip[1]) 
+check_days_left(csv_trips, d=new_trip[1]) 
 ```
 
 ## Acknowledgements
